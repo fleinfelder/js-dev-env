@@ -1,0 +1,13 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: node:6.10.2
+    working_directory: /home/ubuntu/js-dev-env
+    steps:
+      - checkout
+      - run: mkdir -p /home/ubuntu/js-dev-env/artifacts
+      - run: npm install
+      - run: npm test
+      - store_artifacts:
+          path: /home/ubuntu/js-dev-env/artifacts
