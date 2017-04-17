@@ -8,6 +8,7 @@
     "open:src": "babel-node buildScripts/srcServer.js",
     "lint": "esw webpack.config.*  src  buildScripts",
     "lint:watch": "npm run lint -- --watch",
+    "lint:report": "npm run lint -- --format junit",
     "test": "jest",
     "test:watch": "npm run test -- --watch",
     "security-check": "nsp check"
