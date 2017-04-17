@@ -7,7 +7,10 @@ jobs:
     steps:
       - checkout
       - run: mkdir -p /home/ubuntu/js-dev-env/artifacts
+      - run: mkdir -p /home/ubuntu/js-dev-env/test-results
       - run: npm install
       - run: npm test
       - store_artifacts:
           path: /home/ubuntu/js-dev-env/artifacts
+      - store_test_results:
+          path: /home/ubuntu/js-dev-env/test-results
