@@ -1,9 +1,11 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import webpack from 'webpack';
 
 export default {
-  devtool: 'inline-source-map',
+  devtool: 'cheap-module-eval-source-map',
   entry: [
+    'webpack-hot-middleware/client?reload=true',
     path.resolve(__dirname, 'src/index')
   ],
   target: 'web',
@@ -12,7 +14,12 @@ export default {
     publicPath: '/',
     filename: 'bundle.js'
   },
+  devServer: {
+    contentBase: '.src/'
+  },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     // Create HTML file that includes reference to bundled JS.
     new HtmlWebpackPlugin({
       template: 'src/index.html',
