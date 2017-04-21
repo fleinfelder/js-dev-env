@@ -1,6 +1,6 @@
 import webpack from 'webpack';
 import webpackConfig from '../webpack.config.prod';
-import colors from 'colors';
+import colors from 'colors'; // eslint-disable-line no-unused-vars
 
 process.env.NODE_ENV = 'production';
 
